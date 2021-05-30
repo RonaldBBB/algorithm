@@ -1,7 +1,7 @@
-package basic.episode04;
+package basic.episode04_List;
 
 /**
- * @Description 判断链表是否为回文链表
+ * @Description 判断链表是否为回文链表 leetcode234
  * @Date 2021/5/30 20:46
  * @Created by xiaofei
  */
