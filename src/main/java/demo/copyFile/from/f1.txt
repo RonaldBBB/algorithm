@@ -1,0 +1,76 @@
+package itheima01;
+
+import java.io.*;
+
+/*
+    文件复制代码实现
+        步骤:
+            1.创建文件字节输入流FileInputStream类的对象fis,绑定源文件
+            2.创建文件字节输出流FileOutputStream类的对象,绑定目标文件
+            3.循环读(源文件)写(目标文件),单字节/字节数组
+            4.关闭流释放资源
+
+        练习:
+            1.计算两种复制文件的方式的时间: System.currentTimeMillis()
+            2.把复制文件的方法定义,优化
+                定义2个File参数
+                    File srcFile: 源文件
+                    File destFile: 目标文件
+ */
+public class Demo03CopyFile {
+    public static void main(String[] args) throws IOException {
+        copy01();
+    }
+    //字节数组循环读写
+    private static void copy02() throws IOException {
+        //1.创建文件字节输入流FileInputStream类的对象fis,绑定源文件
+        FileInputStream fis = new FileInputStream("day11\\from\\coder_must.flv");
+
+        //2.创建文件字节输出流FileOutputStream类的对象,绑定目标文件
+        FileOutputStream fos = new FileOutputStream("day11\\dest\\coder_must3.flv");
+
+        //3.循环读(源文件)写(目标文件),字节数组
+
+        //定义字节数组: 存储每次多去到的多个字节的内容的
+        byte[] bs = new byte[1024*6];
+
+        //定义int变量,存储每次读取到的字节的数量
+        int len = 0;
+
+        //从fis关联的文件中,读取多个字节存储到字节数组bs中,返回读取的字节的数量,赋值给len
+        //最后判断len的值是否等于-1
+        while((len = fis.read(bs))!=-1) {
+            //把字节数组bs中索引0后面的len个字节的内容,写出到fos关联的文件中
+            fos.write(bs,0,len);
+        }
+
+
+        //4.关闭流释放资源
+        fis.close();
+        fos.close();
+    }
+
+    //单字节循环读写
+    private static void copy01() throws IOException {
+        //1.创建文件字节输入流FileInputStream类的对象fis,绑定源文件
+        FileInputStream fis = new FileInputStream("day11\\from\\coder_must.flv");
+
+        //2.创建文件字节输出流FileOutputStream类的对象,绑定目标文件
+        FileOutputStream fos = new FileOutputStream("day11\\dest\\coder_must2.flv");
+
+        //3.循环读(源文件)写(目标文件),单字节
+        //定义int变量,保存每次读取到的一个字节的内容
+        int b = 0;
+
+        //从fis关联的文件中,读取一个字节的内容,作为方法的返回值,赋值给变量b
+        //最后判断b的值是否等于-1
+        while((b = fis.read())!=-1) {
+            //把b中的内容写出到fos关联的文件中
+            fos.write(b);
+        }
+
+        //4.关闭流释放资源
+        fis.close();
+        fos.close();
+    }
+}
