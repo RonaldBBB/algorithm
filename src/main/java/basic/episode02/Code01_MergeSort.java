@@ -1,7 +1,7 @@
 package basic.episode02;
 
 /**
- * @Description 归并排序 TODO: 修改binarySearch中的>>括号
+ * @Description 归并排序
  * @Date 2021/5/27 23:05
  * @Created by xiaofei
  */

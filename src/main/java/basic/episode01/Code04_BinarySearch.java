@@ -9,7 +9,7 @@ public class Code04_BinarySearch {
         int left = 0, right = arr.length - 1;
         while (left <= right) {
             // 防止数组长度过长导致溢出
-            int mid = left + (right - left) >> 1;
+            int mid = left + ((right - left) >> 1);
             if (arr[mid] == target) return mid;
             else if (arr[mid] > target) right = mid - 1;
             else left = mid + 1;
@@ -24,7 +24,7 @@ public class Code04_BinarySearch {
         int left = 0, right = arr.length - 1;
         while (left <= right) {
             // 防止数组长度过长导致溢出
-            int mid = left + (right - left) >> 1;
+            int mid = left + ((right - left) >> 1);
             if (arr[mid] == target) {
                 if (mid == 0 || arr[mid - 1] != target) return mid;
                 else right = mid - 1;
@@ -41,7 +41,7 @@ public class Code04_BinarySearch {
         int left = 0, right = arr.length - 1;
         while (left <= right) {
             // 防止数组长度过长导致溢出
-            int mid = left + (right - left) >> 1;
+            int mid = left + ((right - left) >> 1);
             if (arr[mid] >= target) {
                 if (mid == 0 || arr[mid - 1] < target) return mid;
                 else right = mid - 1;
@@ -51,5 +51,9 @@ public class Code04_BinarySearch {
         return -1;
     }
 
-
+    public static void main(String[] args) {
+        System.out.println(new Code04_BinarySearch().binarySearchEqLeft(
+                new int[]{5, 7, 7, 8, 8, 10}, 8
+        ));
+    }
 }

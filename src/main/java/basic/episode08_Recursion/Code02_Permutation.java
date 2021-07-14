@@ -1,5 +1,9 @@
 package basic.episode08_Recursion;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * @Description
  * 剑指offer38 leetcode567
@@ -11,8 +15,31 @@ package basic.episode08_Recursion;
  * @Created by xiaofei
  */
 public class Code02_Permutation {
+    List<String> result = new ArrayList<>();
+
     public String[] permutation(String s) {
-        return null;
+        StringBuilder sb = new StringBuilder();
+        char[] chars = s.toCharArray();
+        ArrayList<Character> charList = new ArrayList<>();
+        for(char c:chars)charList.add(c);
+        permutation(sb,charList);
+        return result.toArray(new String[0]);
     }
 
+    public void permutation(StringBuilder already,List<Character> charList){
+        if(charList.size()==0)result.add(already.toString());
+        boolean[] visited = new boolean[26];
+        for(int i=0;i<charList.size();i++){
+            Character temp = charList.remove(0);
+            if(!visited[temp - 'a']){
+                visited[temp-'a']=true;
+                already.append(temp);
+                permutation(already,charList);
+                charList.add(temp);
+                already.deleteCharAt(already.length()-1);
+            }else{
+                charList.add(temp);
+            }
+        }
+    }
 }

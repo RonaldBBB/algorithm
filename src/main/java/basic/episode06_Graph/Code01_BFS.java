@@ -1,9 +1,6 @@
 package basic.episode06_Graph;
 
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @Description 宽度优先遍历
@@ -33,5 +30,32 @@ public class Code01_BFS {
             }
         }
     }
+    static class TreeNode{
+        int val;
+        TreeNode left;
+        TreeNode right;
+    }
 
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        if(root==null)return new ArrayList<List<Integer>>();
+        List<List<Integer>> result = new ArrayList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
+        boolean flag = true;
+        queue.add(root);
+        while(!queue.isEmpty()){
+            int size = queue.size();
+            List<Integer> row = new ArrayList<>();
+            for(int i = 0;i<size;i++){
+                TreeNode temp = queue.remove();
+                row.add(temp.val);
+                if(temp.left!=null)queue.add(temp.left);
+                if(temp.right!=null)queue.add(temp.right);
+            }
+            if (!flag) {
+                Collections.reverse(row);
+            } result.add(row);
+            flag = !flag;
+        }
+        return result;
+    }
 }

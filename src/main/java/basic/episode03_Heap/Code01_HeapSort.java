@@ -13,7 +13,7 @@ public class Code01_HeapSort {
         if (arr == null || arr.length < 2) return arr;
 
         // 建堆
-        for (int i = arr.length - 1; i >= 0; i--) {
+        for (int i = arr.length/2; i >= 0; i--) {
             heapify(arr, i, arr.length-1);
         }
 

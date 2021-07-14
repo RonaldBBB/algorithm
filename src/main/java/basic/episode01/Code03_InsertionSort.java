@@ -4,7 +4,7 @@ package basic.episode01;
  * 插入排序
  * 优势在于：数据的内容会影响执行的效率，比如在数据已经排序的情况下复杂度是 n
  */
-public class Code03_InsertionSort {
+public class  Code03_InsertionSort {
 
     public int[] insertionSort(int[] arr) {
         if (arr == null || arr.length < 2) return arr;
