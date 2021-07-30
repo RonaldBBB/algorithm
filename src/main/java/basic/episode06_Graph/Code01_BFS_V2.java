@@ -6,7 +6,7 @@ import java.util.LinkedList;
 /**
  * @author: zyf
  * @date: 2021/6/27 16:58
- * @description:
+ * @description: 需要输出路径的版本
  */
 public class Code01_BFS_V2 {
     LinkedList<Integer>[] adjacent;

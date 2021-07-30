@@ -1,7 +1,7 @@
 package basic.episode05_Tree;
 
 /**
- * @Description 有父节点信息,返回任意节点的后续节点 leetcode285
+ * @Description 有父节点信息,返回任意节点的后续节点
  * @Date 2021/5/30 23:37
  * @Created by xiaofei
  */
