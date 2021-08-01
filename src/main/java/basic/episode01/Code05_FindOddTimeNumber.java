@@ -1,6 +1,7 @@
 package basic.episode01;
 
 /**
+ * offer56
  * 异或的两种解读：相同为0，不同为1；无进位相加
  * 异或的性质：a^a=0  a^0=a  异或满足交换律和结合律
  */
@@ -42,5 +43,7 @@ public class Code05_FindOddTimeNumber {
 
         int[] arr2 = {4, 3, 4, 2, 2, 2, 4, 1, 1, 1, 3, 3, 1, 1, 1, 4, 2, 2};
         findOddTimeNumber2(arr2);
+
+        System.out.println(3&(~3+1));
     }
 }
