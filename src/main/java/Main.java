@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -8,27 +10,27 @@ import java.util.Scanner;
  */
 public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int k=2;
-        int end = n;
-        ArrayList<Integer> list = new ArrayList<>();
-        while(k<end){
-            if(n==k) {
-                list.add(k);
-                break;
-            }
-            while(n%k==0){
-                list.add(k);
-                n/=k;
-            }
-            k++;
+        System.out.println(letterCombinations(""));
+    }
+
+    public static List<String> letterCombinations(String digits) {
+        LinkedList<String> result = new LinkedList<>();
+        if(digits.length()==0)return result;
+        int begin = (digits.charAt(0)-'0'-2)*3;
+        for(int i=0;i<3;i++){
+            result.add(new String(new char[]{(char)('a'+begin+i)}));
         }
-        System.out.print(end+"=");
-        for (int i = 0; i <list.size()-1; i++) {
-            System.out.print(list.get(i));
-            System.out.print("*");
+        for(int i=1;i<digits.length();i++){
+            int size = result.size();
+            for(int j=0;j<size;j++){
+                int innerBegin = (digits.charAt(i)-'0'-2)*3;
+                String temp = result.remove();
+                for(int k=0;k<size;k++){
+                    result.add(temp+(char)('a'+innerBegin+k));
+                }
+            }
         }
-        System.out.print(list.get(list.size()-1));
+
+        return result;
     }
 }

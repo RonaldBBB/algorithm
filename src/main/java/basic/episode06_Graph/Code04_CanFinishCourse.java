@@ -6,6 +6,7 @@ import java.util.Map;
 
 /**
  * @Description 拓扑排序 课程表 leetcode207
+ * 有向图判环 无向图同样可以使用拓扑排序 此时循环删除度数为1的节点
  * @Date 2021/6/2 14:31
  * @Created by xiaofei
  */
