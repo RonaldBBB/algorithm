@@ -1,4 +1,4 @@
-package basic.episode01;
+package basic.episode_0永恒经典;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,7 +9,7 @@ import java.util.List;
  * @Date 2021/7/30 23:52
  * @Created by xiaofei
  */
-public class Code07_三数之和 {
+public class Code04_三数之和 {
     public static List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
         Arrays.sort(nums);
