@@ -1,3 +1,4 @@
+import java.awt.image.PixelInterleavedSampleModel;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -9,28 +10,16 @@ import java.util.Scanner;
  * @description:
  */
 public class Main {
-    public static void main(String[] args) {
-        System.out.println(letterCombinations(""));
+    public int mySqrt(int x) {
+        if (x == 1) return 1;
+        for (int i = 46340; i <= x; i++) {
+            if (i * i == x) return i;
+            else if(i*i>x) return i-1;
+        }
+        return 0;
     }
 
-    public static List<String> letterCombinations(String digits) {
-        LinkedList<String> result = new LinkedList<>();
-        if(digits.length()==0)return result;
-        int begin = (digits.charAt(0)-'0'-2)*3;
-        for(int i=0;i<3;i++){
-            result.add(new String(new char[]{(char)('a'+begin+i)}));
-        }
-        for(int i=1;i<digits.length();i++){
-            int size = result.size();
-            for(int j=0;j<size;j++){
-                int innerBegin = (digits.charAt(i)-'0'-2)*3;
-                String temp = result.remove();
-                for(int k=0;k<size;k++){
-                    result.add(temp+(char)('a'+innerBegin+k));
-                }
-            }
-        }
-
-        return result;
+    public static void main(String[] args) {
+        System.out.println(new Main().mySqrt(2147395600));
     }
 }
