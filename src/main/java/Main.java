@@ -1,25 +1,30 @@
-import java.awt.image.PixelInterleavedSampleModel;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Scanner;
 
-/**
- * @author: zyf
- * @date: 2021/7/19 20:01
- * @description:
- */
 public class Main {
-    public int mySqrt(int x) {
-        if (x == 1) return 1;
-        for (int i = 46340; i <= x; i++) {
-            if (i * i == x) return i;
-            else if(i*i>x) return i-1;
+
+    public static int[] function(int n,int a1,int b1,int a2,int b2){
+        int[] resultArr = new int[2];
+        double result = 0;
+        for(int i=0;i<=n;i++){
+            double temp = Math.sqrt(Math.pow((i*a1+(n-i)*a2),2)+
+                    Math.pow((i*b1+(n-i)*b2),2));
+            if(temp>result){
+                resultArr[0]=i;
+                resultArr[1]=n-i;
+                result = temp;
+            }
         }
-        return 0;
+        return resultArr;
     }
 
     public static void main(String[] args) {
-        System.out.println(new Main().mySqrt(2147395600));
+        Scanner sc = new Scanner(System.in);
+        int n=sc.nextInt();
+        int a1 = sc.nextInt();
+        int b1 = sc.nextInt();
+        int a2 = sc.nextInt();
+        int b2 = sc.nextInt();
+        int[] result = function(n,a1,b1,a2,b2);
+        System.out.println(result[0]+" "+result[1]);
     }
 }

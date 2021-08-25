@@ -12,7 +12,7 @@ package interview;
  * 输入: n, k (6 < n < 200, 1 < k < 7)
  * 输出: 一个整数 (所有可能的分法总数)
  */
-public class I20210825Shopee_数的划分 {
+public class I20210802Shopee_数的划分 {
     public int divide(int n, int k) {
         int dp[][] = new int[201][7];
         dp[0][0] = 1;
@@ -49,6 +49,6 @@ public class I20210825Shopee_数的划分 {
     }
 
     public static void main(String[] args) {
-        System.out.println(new I20210825Shopee_数的划分().divide(7, 7));
+        System.out.println(new I20210802Shopee_数的划分().divide(7, 7));
     }
 }
