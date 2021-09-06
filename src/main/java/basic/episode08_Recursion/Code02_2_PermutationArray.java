@@ -16,7 +16,7 @@ public class Code02_2_PermutationArray {
         LinkedList<Integer> numList = new LinkedList<>();
         for(int n:nums)numList.add(n);
         int length = numList.size();
-        permute(new ArrayList<Integer>(),numList,length);
+        permute(new ArrayList<>(),numList,length);
         return result;
     }
 
